@@ -21,11 +21,12 @@ The development server proxies `/api` to `http://127.0.0.1:8000` so local work
 does not depend on the backend CORS allowlist. The target backend itself is not
 changed.
 
-## Demo Mode (development only)
+## Demo Mode
 
-`npm run dev` builds the demo. There are two entry points:
+The demo is installed on startup in every build, including production. There are
+two entry points:
 
-- The landing page shows a **Dev preview** strip with a role picker and
+- The landing page shows a **Demo preview** strip with a role picker and
   **Open demo**.
 - `/login` shows a **Demo mode** panel below the normal form with **Enter demo**.
 
@@ -37,11 +38,9 @@ keeps the demo but closing the tab ends it. No account, password, email
 verification, token, or backend request is involved; all responses come from an
 in-file Axios adapter.
 
-The demo is compiled out of production: the mock module graph is only imported
-from an `import.meta.env.DEV` branch in `src/main.tsx`, and the adapter is only
-installed when `DEV` is true. A production build contains no demo fixtures,
-demo user names, conversation text, or `sessionStorage` key. Normal sign-up,
-sign-in, and verification code paths are unchanged.
+The mock adapter is installed at startup and answers requests only while a demo
+role is active; every other request still reaches the real backend. Normal
+sign-up, sign-in, and verification code paths are unchanged.
 
 Everything a demo screen reports is simulated: chat replies are scripted
 samples, appointments and admin actions mutate only in-memory/browser data, the

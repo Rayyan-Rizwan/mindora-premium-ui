@@ -23,13 +23,13 @@ function isDemoRole(value: unknown): value is DemoRole {
 }
 
 /**
- * Demo mode is compiled out of production behaviour: Vite replaces
- * `import.meta.env.DEV` with `false` in `vite build`, so every entry point and
- * the mock adapter below become unreachable. The mock fixtures themselves are
- * only loaded from a dynamic import inside a `DEV` branch in `main.tsx`.
+ * Demo mode is available in every build so the sample workspace can be opened
+ * from the landing page and sign-in screen in production too. Requests are only
+ * answered by the mock adapter while a demo role is active; all other traffic
+ * still reaches the real backend.
  */
 export function isDemoAvailable(): boolean {
-  return import.meta.env.DEV;
+  return true;
 }
 
 export function demoHomeFor(role: DemoRole): string {

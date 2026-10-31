@@ -16,10 +16,8 @@ if (!root) {
 async function bootstrap() {
   // Demo mode must be installed before the first render so a restored demo
   // session resolves through the local adapter instead of the network.
-  if (import.meta.env.DEV) {
-    const { installDemoMode } = await import("./demo/install");
-    installDemoMode();
-  }
+  const { installDemoMode } = await import("./demo/install");
+  installDemoMode();
 
   createRoot(root as HTMLElement).render(
     <StrictMode>

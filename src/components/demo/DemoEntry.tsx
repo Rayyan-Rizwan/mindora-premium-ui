@@ -17,9 +17,9 @@ const ROLE_HINTS: Record<DemoRole, string> = {
 };
 
 /**
- * Development-only entry point. It is not rendered in a production build:
- * `isDemoAvailable()` is `false` there, and the whole demo module graph is
- * only imported from a `DEV` branch in `main.tsx`.
+ * Entry point for the sample workspace. It is rendered in every build whenever
+ * a demo role can be started; `isDemoAvailable()` keeps it in sync with the
+ * session layer.
  */
 export function DemoEntry({ variant = "panel" }: { variant?: "panel" | "strip" }) {
   const { startDemo } = useAuth();
@@ -37,7 +37,7 @@ export function DemoEntry({ variant = "panel" }: { variant?: "panel" | "strip" }
     return (
       <aside className="demo-strip" aria-label="Demo mode">
         <span className="demo-strip__badge">
-          <SparkIcon size={14} /> Dev preview
+          <SparkIcon size={14} /> Demo preview
         </span>
         <p className="demo-strip__text">
           Explore Mindora with sample data — no account, email or backend
@@ -105,9 +105,9 @@ export function DemoEntry({ variant = "panel" }: { variant?: "panel" | "strip" }
         </Button>
       </div>
       <p className="demo-entry__note">
-        Development only. Demo data stays in this browser session, nothing is
-        sent to Mindora’s servers, and real sign-up, sign-in and email
-        verification are unchanged.
+        Demo preview. Demo data stays in this browser session, nothing is sent
+        to Mindora’s servers, and real sign-up, sign-in and email verification
+        are unchanged.
       </p>
     </section>
   );
