@@ -1,0 +1,311 @@
+/* -------------------------------- Companion ------------------------------ */
+
+.companion {
+  position: relative;
+  display: block;
+  width: var(--companion-size, 112px);
+  height: calc(var(--companion-size, 112px) * 1.175);
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.companion::before {
+  content: "";
+  position: absolute;
+  inset: 5% -4% 4%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 44%,
+    color-mix(in srgb, var(--brand-3) 60%, transparent) 0%,
+    color-mix(in srgb, var(--brand-3) 24%, transparent) 48%,
+    transparent 74%
+  );
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.companion--sm {
+  --companion-size: 52px;
+}
+
+.companion--md {
+  --companion-size: 112px;
+}
+
+.companion--lg {
+  --companion-size: clamp(180px, 24vw, 240px);
+}
+
+.companion--hero {
+  --companion-size: clamp(230px, 34vw, 330px);
+}
+
+.companion .companion-art {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.companion-art {
+  width: 100%;
+  height: 100%;
+}
+
+.companion-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 22px 26px rgba(96, 78, 138, 0.16));
+}
+
+.companion-art__body {
+  transform-box: fill-box;
+  transform-origin: 50% 78%;
+  animation: companion-breathe 5.6s var(--ease-soft) infinite;
+}
+
+.companion-art__lobes {
+  transform-box: fill-box;
+  transform-origin: 50% 30%;
+  animation: companion-lobe 7.4s var(--ease-soft) infinite;
+}
+
+.companion-art__accessory--sprout {
+  transform-box: fill-box;
+  transform-origin: 50% 96%;
+  animation: companion-sway 6.4s var(--ease-soft) infinite;
+}
+
+.companion-art__accessory--ears {
+  transform-box: fill-box;
+  transform-origin: 50% 96%;
+  animation: companion-ear-wiggle 7.2s var(--ease-soft) infinite;
+}
+
+.companion-art__accessory--star {
+  transform-box: fill-box;
+  transform-origin: 50% 96%;
+  animation: companion-twinkle 4.8s var(--ease-soft) infinite;
+}
+
+.companion-art__eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: companion-blink 6.2s steps(1, end) infinite;
+}
+
+.companion-art__thought circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: companion-thought 1.8s var(--ease-soft) infinite;
+  opacity: 0.35;
+}
+
+.companion-art__thought circle:nth-child(2) {
+  animation-delay: 0.24s;
+}
+
+.companion-art__thought circle:nth-child(3) {
+  animation-delay: 0.48s;
+}
+
+.companion-art__listen {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: companion-listen 2.4s var(--ease-soft) infinite;
+}
+
+.companion-art__sparkles path {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: companion-sparkle 3.4s var(--ease-soft) infinite;
+}
+
+.companion-art__sparkles path:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.companion-art__sparkles path:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+/* State accents */
+
+.companion-art--listening .companion-art__body {
+  animation-duration: 3.8s;
+}
+
+.companion-art--listening .companion-art__accessory--sprout {
+  animation-duration: 3.2s;
+}
+
+.companion-art--thinking .companion-art__body {
+  animation-duration: 7.4s;
+}
+
+.companion-art--thinking .companion-art__eyes {
+  animation: none;
+  transform: scaleY(0.74);
+}
+
+.companion-art--responding .companion-art__body {
+  animation-duration: 2.9s;
+}
+
+.companion-art--encouraging .companion-art__body {
+  animation: companion-hop 4.4s var(--ease-soft) infinite;
+}
+
+.companion-art--encouraging .companion-art__accessory--sprout {
+  animation-duration: 3.6s;
+}
+
+.companion-art--error {
+  filter: saturate(0.6);
+}
+
+.companion-art--error .companion-art__body {
+  animation-duration: 9s;
+}
+
+.companion-art--error .companion-art__lid {
+  opacity: 0.5;
+}
+
+.companion-art--error .companion-art__eyes {
+  animation-duration: 9s;
+}
+
+@keyframes companion-breathe {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.012);
+  }
+}
+
+@keyframes companion-hop {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  38% {
+    transform: translateY(-7px) scale(1.012);
+  }
+  55% {
+    transform: translateY(0) scale(0.995);
+  }
+  68% {
+    transform: translateY(-2px) scale(1.004);
+  }
+}
+
+@keyframes companion-lobe {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.4deg);
+  }
+}
+
+@keyframes companion-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes companion-blink {
+  0%,
+  92%,
+  100% {
+    transform: scaleY(1);
+  }
+  94%,
+  97% {
+    transform: scaleY(0.08);
+  }
+}
+
+@keyframes companion-ear-wiggle {
+  0%,
+  100% {
+    transform: rotate(-1.6deg);
+  }
+  50% {
+    transform: rotate(1.8deg);
+  }
+}
+
+@keyframes companion-twinkle {
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.08) rotate(6deg);
+    opacity: 0.88;
+  }
+}
+
+@keyframes companion-thought {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes companion-listen {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes companion-sparkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85) rotate(0deg);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1.06) rotate(8deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .companion-art__body,
+  .companion-art__lobes,
+  .companion-art__accessory--sprout,
+  .companion-art__accessory--ears,
+  .companion-art__accessory--star,
+  .companion-art__eyes,
+  .companion-art__thought circle,
+  .companion-art__listen,
+  .companion-art__sparkles path,
+  .companion-mini__float {
+    animation: none !important;
+  }
+}

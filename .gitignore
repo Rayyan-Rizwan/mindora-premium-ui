@@ -1,0 +1,40 @@
+# dependencies
+node_modules/
+
+# build output and caches
+dist/
+coverage/
+*.tsbuildinfo
+
+# environment files (keep the safe template)
+.env*
+!.env.example
+
+# local databases and dumps
+*.sqlite
+*.sqlite3
+*.db
+*.db-journal
+*.dump
+
+# keys and certificates
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+
+# logs, backups, and temporary files
+*.log
+*.bak
+*.backup
+*.orig
+*.tmp
+*.temp
+*.swp
+
+# internal audit documents (kept local, not published)
+/docs/
+
+# OS and editor files
+.DS_Store

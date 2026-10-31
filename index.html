@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4eff9" />
+    <meta
+      name="description"
+      content="Mindora — a calmer place to check in with yourself, with an AI companion, mood tracking and wellbeing screening."
+    />
+    <script>
+      // Apply the saved palette before first paint to avoid a theme flash.
+      (function () {
+        try {
+          var theme = localStorage.getItem("mindora_theme");
+          var mode = localStorage.getItem("mindora_mode");
+          if (theme === "light" || theme === "dark") {
+            mode = theme;
+            theme = "lavender";
+          }
+          var themes = ["lavender", "peach", "mint", "sky", "rose"];
+          if (themes.indexOf(theme) < 0) theme = "lavender";
+          if (mode !== "light" && mode !== "dark") mode = "light";
+          document.documentElement.dataset.theme = theme;
+          document.documentElement.dataset.mode = mode;
+          document.documentElement.style.colorScheme = mode;
+        } catch (error) {
+          document.documentElement.dataset.theme = "lavender";
+          document.documentElement.dataset.mode = "light";
+        }
+      })();
+    </script>
+    <title>Mindora — Your calm companion</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+/* -------------------------------- Demo mode ------------------------------- */
+/* Only rendered in development builds; see src/demo/demoSession.ts. */
+
+/* Landing: slim strip below the header */
+.demo-strip {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 16px;
+  margin: 6px calc(clamp(18px, 5vw, 72px) * -1) 0;
+  padding: 10px clamp(18px, 5vw, 72px);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--brand-soft) 92%, transparent),
+      color-mix(in srgb, var(--warning-soft) 82%, transparent)
+    );
+  font-size: 0.82rem;
+}
+
+.demo-strip__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-solid);
+  border: 1px solid var(--line-strong);
+  color: var(--brand-deep);
+  font-size: 0.66rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.demo-strip__text {
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+.demo-strip__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo-strip__select,
+.demo-entry__select {
+  min-height: 36px;
+  padding: 6px 30px 6px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-input);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.demo-strip__select:focus-visible,
+.demo-entry__select:focus-visible,
+.demo-banner__select:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Auth pages: card below the form */
+.demo-entry {
+  margin-top: 26px;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--line-strong);
+  background:
+    linear-gradient(
+      150deg,
+      color-mix(in srgb, var(--brand-soft) 74%, transparent),
+      transparent 72%
+    ),
+    var(--surface);
+  display: grid;
+  gap: 14px;
+}
+
+.demo-entry__head {
+  display: grid;
+  gap: 6px;
+}
+
+.demo-entry__head h2 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 550;
+  letter-spacing: -0.015em;
+}
+
+.demo-entry__head p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.demo-entry__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-solid);
+  border: 1px solid var(--line);
+  color: var(--brand-deep);
+  font-size: 0.64rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.demo-entry__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.demo-entry__select {
+  flex: 1 1 190px;
+}
+
+.demo-entry__note {
+  color: var(--muted-2);
+  font-size: 0.74rem;
+  line-height: 1.55;
+}
+
+/* App shell: sticky banner above the topbar */
+.demo-banner {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 6px clamp(12px, 3vw, 42px);
+  border-bottom: 1px solid var(--line-strong);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--brand-soft) 96%, var(--surface-solid)),
+      color-mix(in srgb, var(--warning-soft) 86%, var(--surface-solid))
+    );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.app-shell--demo .topbar {
+  top: 48px;
+}
+
+/* The banner adds 48px above the topbar; the chat viewport is measured from
+   the top of the window, so its height must give that space back. */
+.app-shell--demo .chat-page {
+  height: calc(100dvh - var(--topbar-h) - 72px - 48px);
+}
+
+@media (max-width: 960px) {
+  .app-shell--demo .chat-page {
+    height: calc(100dvh - var(--topbar-h) - 148px - 48px);
+  }
+}
+
+@media (max-width: 720px) {
+  .app-shell--demo .chat-page {
+    height: calc(100dvh - var(--topbar-h) - 138px - 48px);
+  }
+}
+
+.demo-banner__dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--brand);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--brand) 22%, transparent);
+}
+
+.demo-banner__title {
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--brand-deep);
+  white-space: nowrap;
+}
+
+.demo-banner__text {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.demo-banner__select {
+  margin-left: auto;
+  min-height: 32px;
+  padding: 4px 26px 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-solid);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.demo-banner__exit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex: none;
+  min-height: 32px;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line-strong);
+  background: var(--ink);
+  color: var(--surface-solid);
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition:
+    transform 0.18s var(--ease),
+    box-shadow 0.18s var(--ease);
+}
+
+.demo-banner__exit:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+.demo-banner__exit:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Inline reminder on surfaces with simulated actions */
+.demo-note {
+  margin: 10px 0 0;
+  padding: 9px 12px;
+  border-radius: var(--radius-xs);
+  border: 1px dashed var(--line-strong);
+  background: var(--brand-soft);
+  color: var(--brand-deep);
+  font-size: 0.76rem;
+  line-height: 1.55;
+}
+
+.demo-note--success {
+  border-color: color-mix(in srgb, var(--success) 40%, transparent);
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.chat-message__demo {
+  padding: 1px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-soft);
+  color: var(--brand-deep);
+  font-size: 0.62rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 960px) {
+  .demo-banner__text {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .demo-strip {
+    justify-content: flex-start;
+    padding: 10px 20px;
+  }
+
+  .demo-strip__actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .demo-strip__select {
+    flex: 1;
+  }
+
+  .demo-banner {
+    gap: 8px;
+    padding: 6px 16px;
+  }
+
+  .demo-banner__select {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 400px) {
+  .demo-banner__title {
+    display: none;
+  }
+
+  .demo-banner__exit {
+    padding: 4px 9px;
+    font-size: 0.72rem;
+  }
+}

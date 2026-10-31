@@ -1,0 +1,589 @@
+/* ==========================================================================
+   Mindora design tokens
+   data-theme: lavender | peach | mint | sky | rose  (palette)
+   data-mode:  light | dark                           (brightness)
+   ========================================================================== */
+
+:root {
+  /* Typography ----------------------------------------------------------- */
+  --font-display: "Fraunces Variable", "Iowan Old Style", Georgia, serif;
+  --font-body: "Plus Jakarta Sans Variable", "Segoe UI", system-ui, sans-serif;
+
+  --text-2xs: 0.68rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.85rem;
+  --text-md: 0.95rem;
+  --text-lg: 1.12rem;
+  --text-xl: clamp(1.3rem, 1.8vw, 1.5rem);
+  --text-2xl: clamp(1.55rem, 2.4vw, 1.9rem);
+  --text-3xl: clamp(1.95rem, 3.2vw, 2.6rem);
+  --text-hero: clamp(2.4rem, 5.2vw, 4rem);
+
+  --weight-regular: 450;
+  --weight-medium: 550;
+  --weight-semibold: 650;
+  --weight-bold: 750;
+  --weight-extrabold: 800;
+
+  /* Spacing -------------------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 32px;
+  --space-8: 40px;
+  --space-9: 48px;
+  --space-10: 56px;
+  --space-11: 64px;
+  --space-12: 80px;
+
+  /* Default palette: Lavender Dream (light) ------------------------------ */
+  --bg: #f6f1fb;
+  --bg-2: #fff9f2;
+  --bg-accent: #ece4f8;
+  --surface: rgba(255, 253, 251, 0.78);
+  --surface-strong: rgba(255, 253, 251, 0.92);
+  --surface-solid: #fffdfb;
+  --surface-sunken: rgba(244, 237, 250, 0.74);
+  --surface-input: rgba(255, 255, 255, 0.82);
+
+  --ink: #37304b;
+  --ink-soft: #4f4867;
+  --muted: #6f6685;
+  --muted-2: #776d8c;
+
+  --line: rgba(84, 68, 112, 0.11);
+  --line-strong: rgba(84, 68, 112, 0.2);
+
+  --brand: #6b50b2;
+  --brand-2: #9a82d6;
+  --brand-3: #cdbef0;
+  --brand-deep: #563f96;
+  --brand-ink: #6b50b2;
+  --brand-soft: rgba(140, 120, 205, 0.15);
+  --brand-gradient: linear-gradient(135deg, #7b5fc4 0%, #5f459f 100%);
+  --on-brand: #ffffff;
+
+  --decor-1: rgba(221, 208, 246, 0.62);
+  --decor-2: rgba(255, 235, 218, 0.78);
+  --decor-3: rgba(193, 217, 242, 0.52);
+  --selection: rgba(140, 120, 205, 0.26);
+
+  --indigo: #5f679a;
+  --mist: #c8dbf1;
+  --lavender: #dcd0f4;
+  --peach: #f8cdb8;
+  --cream: #fff3e4;
+  --sage: #c3dccd;
+
+  /* Illustration palette (recolours with every theme) --------------------- */
+  --ill-cloud: #fffaf5;
+  --ill-cloud-2: #f1e8f9;
+  --ill-hill: #dcd1f4;
+  --ill-hill-2: #c9b9eb;
+  --ill-hill-front: #f1eafa;
+  --ill-sand: #f9dbc9;
+  --ill-sand-2: #f4c6af;
+  --ill-sky: #d3e6f8;
+  --ill-sky-2: #b6d5ef;
+  --ill-water: #b9dcf0;
+  --ill-water-2: #8fc4e4;
+  --ill-leaf: #a6cdb0;
+  --ill-leaf-2: #7fb391;
+  --ill-bloom: #f4c2d3;
+  --ill-bloom-2: #e89bb6;
+  --ill-sun: #ffd9a8;
+  --ill-sun-2: #f7b982;
+  --ill-ink: #6a5a8f;
+  --ill-ink-soft: #8f80ab;
+  --ill-shadow: rgba(87, 66, 120, 0.16);
+  --ill-skin: #f6c9b0;
+  --ill-skin-2: #e8a98c;
+  --ill-hair: #6b4f7c;
+  --ill-hair-2: #533b63;
+
+  /* Mood palette (1 = very low, 5 = very good) ---------------------------- */
+  --mood-1: #7e6ba6;
+  --mood-2: #5f7fa8;
+  --mood-3: #a8874f;
+  --mood-4: #4f8a6d;
+  --mood-5: #c0744d;
+  --mood-1-soft: #f0ebfa;
+  --mood-2-soft: #e9f0fa;
+  --mood-3-soft: #f8f1e3;
+  --mood-4-soft: #e9f5ee;
+  --mood-5-soft: #fbeee7;
+
+  /* Status --------------------------------------------------------------- */
+  --danger: #a94e60;
+  --danger-fill: #a94e60;
+  --danger-soft: rgba(169, 78, 96, 0.12);
+  --success: #3f7a5e;
+  --success-soft: rgba(63, 122, 94, 0.12);
+  --warning: #92672f;
+  --warning-soft: rgba(146, 103, 47, 0.13);
+  --info: #46618f;
+  --info-soft: rgba(70, 97, 143, 0.12);
+
+  /* Elevation ------------------------------------------------------------ */
+  --shadow-xs: 0 1px 2px rgba(52, 38, 76, 0.05);
+  --shadow-sm: 0 6px 18px -10px rgba(52, 38, 76, 0.22);
+  --shadow-md: 0 18px 40px -24px rgba(52, 38, 76, 0.3);
+  --shadow-lg: 0 40px 80px -44px rgba(52, 38, 76, 0.42);
+  --glow-brand: 0 18px 44px -20px rgba(102, 82, 147, 0.5);
+
+  /* Shape ---------------------------------------------------------------- */
+  --radius-xs: 12px;
+  --radius-sm: 16px;
+  --radius-md: 22px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
+  --radius-pill: 999px;
+
+  /* Layout --------------------------------------------------------------- */
+  --glass-blur: 18px;
+  --topbar-h: 76px;
+  --sidebar-w: 278px;
+  --page-max: 1240px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+
+  /* Motion --------------------------------------------------------------- */
+  --duration-fast: 160ms;
+  --duration: 240ms;
+  --duration-slow: 420ms;
+  --duration-ambient: 9s;
+  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --focus-ring: 0 0 0 3px rgba(102, 82, 147, 0.34);
+}
+
+/* ------------------------------ Light palettes --------------------------- */
+
+:root[data-theme="peach"] {
+  --bg: #fdf1ea;
+  --bg-2: #fff8f0;
+  --bg-accent: #f8ddcf;
+  --brand: #964c37;
+  --brand-2: #c1735f;
+  --brand-3: #f0c0ab;
+  --brand-deep: #843f2e;
+  --brand-ink: #964c37;
+  --brand-soft: rgba(193, 115, 95, 0.15);
+  --brand-gradient: linear-gradient(135deg, #a85c46 0%, #843f2e 100%);
+  --surface-sunken: rgba(251, 238, 229, 0.8);
+  --decor-1: rgba(248, 214, 196, 0.62);
+  --decor-2: rgba(255, 240, 228, 0.85);
+  --decor-3: rgba(244, 196, 176, 0.4);
+  --selection: rgba(193, 115, 95, 0.24);
+  --focus-ring: 0 0 0 3px rgba(150, 76, 55, 0.32);
+  --ill-cloud: #fff8f2;
+  --ill-cloud-2: #f7e7dc;
+  --ill-hill: #f7d7c7;
+  --ill-hill-2: #efb8a1;
+  --ill-hill-front: #fdf0e9;
+  --ill-sand: #f9cdb6;
+  --ill-sand-2: #f0b096;
+  --ill-sky: #d8e8f8;
+  --ill-sky-2: #bcd8f1;
+  --ill-water: #a9d7ef;
+  --ill-water-2: #82c2e2;
+  --ill-leaf: #a9cfa9;
+  --ill-leaf-2: #84b588;
+  --ill-bloom: #f4b6c4;
+  --ill-bloom-2: #e895ab;
+  --ill-sun: #ffd1a0;
+  --ill-sun-2: #f0aa70;
+  --ill-ink: #7a5544;
+  --ill-ink-soft: #a17c69;
+  --ill-shadow: rgba(122, 68, 48, 0.16);
+  --ill-skin: #f7c9ae;
+  --ill-skin-2: #e5a486;
+  --ill-hair: #6f4136;
+  --ill-hair-2: #57302a;
+}
+
+:root[data-theme="mint"] {
+  --bg: #ecf7f1;
+  --bg-2: #f8fbf4;
+  --bg-accent: #d6ece1;
+  --brand: #2f6552;
+  --brand-2: #5b9a80;
+  --brand-3: #a9d5c2;
+  --brand-deep: #2c5f4e;
+  --brand-ink: #2f6552;
+  --brand-soft: rgba(91, 154, 128, 0.15);
+  --brand-gradient: linear-gradient(135deg, #3f7f68 0%, #2c5f4e 100%);
+  --surface-sunken: rgba(232, 244, 237, 0.82);
+  --decor-1: rgba(200, 232, 218, 0.6);
+  --decor-2: rgba(245, 250, 240, 0.85);
+  --decor-3: rgba(178, 214, 231, 0.4);
+  --selection: rgba(91, 154, 128, 0.24);
+  --focus-ring: 0 0 0 3px rgba(47, 101, 82, 0.3);
+  --ill-cloud: #fbfdf9;
+  --ill-cloud-2: #e9f3ec;
+  --ill-hill: #d3ebdc;
+  --ill-hill-2: #b4d9c4;
+  --ill-hill-front: #eef8f1;
+  --ill-sand: #f6dcc7;
+  --ill-sand-2: #eec6a8;
+  --ill-sky: #d9e9f7;
+  --ill-sky-2: #bedaf0;
+  --ill-water: #acd8e8;
+  --ill-water-2: #85c2d8;
+  --ill-leaf: #8fc7a3;
+  --ill-leaf-2: #6bab82;
+  --ill-bloom: #f1c1d0;
+  --ill-bloom-2: #e7a2b8;
+  --ill-sun: #ffd9a8;
+  --ill-sun-2: #efb87a;
+  --ill-ink: #406553;
+  --ill-ink-soft: #6d8c7c;
+  --ill-shadow: rgba(38, 84, 64, 0.16);
+  --ill-skin: #f4c9af;
+  --ill-skin-2: #e2a687;
+  --ill-hair: #47566b;
+  --ill-hair-2: #354253;
+}
+
+:root[data-theme="sky"] {
+  --bg: #eaf2fb;
+  --bg-2: #f6f9fd;
+  --bg-accent: #d8e6f6;
+  --brand: #38557f;
+  --brand-2: #6f93c6;
+  --brand-3: #b3cce9;
+  --brand-deep: #35527d;
+  --brand-ink: #38557f;
+  --brand-soft: rgba(111, 147, 198, 0.15);
+  --brand-gradient: linear-gradient(135deg, #4f76ad 0%, #35527d 100%);
+  --surface-sunken: rgba(233, 241, 251, 0.82);
+  --decor-1: rgba(200, 220, 242, 0.6);
+  --decor-2: rgba(238, 245, 253, 0.85);
+  --decor-3: rgba(214, 200, 240, 0.35);
+  --selection: rgba(111, 147, 198, 0.24);
+  --focus-ring: 0 0 0 3px rgba(56, 85, 127, 0.3);
+  --ill-cloud: #fafdff;
+  --ill-cloud-2: #e7f0fa;
+  --ill-hill: #d3e3f6;
+  --ill-hill-2: #b3cdec;
+  --ill-hill-front: #edf4fc;
+  --ill-sand: #f7dccb;
+  --ill-sand-2: #eec6ad;
+  --ill-sky: #d3e8f9;
+  --ill-sky-2: #b3d6f0;
+  --ill-water: #a4d0ea;
+  --ill-water-2: #7cbadd;
+  --ill-leaf: #a9cfb6;
+  --ill-leaf-2: #82b493;
+  --ill-bloom: #f2c4d4;
+  --ill-bloom-2: #e7a5bc;
+  --ill-sun: #ffd9a8;
+  --ill-sun-2: #f0b97c;
+  --ill-ink: #46597a;
+  --ill-ink-soft: #7284a2;
+  --ill-shadow: rgba(45, 73, 110, 0.16);
+  --ill-skin: #f5cab1;
+  --ill-skin-2: #e3a88b;
+  --ill-hair: #5a4a6d;
+  --ill-hair-2: #443753;
+}
+
+:root[data-theme="rose"] {
+  --bg: #fceef3;
+  --bg-2: #fff7f6;
+  --bg-accent: #f7dce4;
+  --brand: #8f4159;
+  --brand-2: #cf8299;
+  --brand-3: #eec0cf;
+  --brand-deep: #834055;
+  --brand-ink: #8f4159;
+  --brand-soft: rgba(207, 130, 153, 0.15);
+  --brand-gradient: linear-gradient(135deg, #a85770 0%, #834055 100%);
+  --surface-sunken: rgba(252, 235, 241, 0.82);
+  --decor-1: rgba(248, 210, 220, 0.6);
+  --decor-2: rgba(255, 242, 240, 0.85);
+  --decor-3: rgba(222, 201, 238, 0.4);
+  --selection: rgba(207, 130, 153, 0.24);
+  --focus-ring: 0 0 0 3px rgba(143, 65, 89, 0.3);
+  --ill-cloud: #fffafb;
+  --ill-cloud-2: #f9e9ef;
+  --ill-hill: #f6d7e3;
+  --ill-hill-2: #eab8cb;
+  --ill-hill-front: #fdf0f4;
+  --ill-sand: #f9d7c4;
+  --ill-sand-2: #f0bba5;
+  --ill-sky: #dbe9f8;
+  --ill-sky-2: #c0d9f1;
+  --ill-water: #afd8ec;
+  --ill-water-2: #88c1de;
+  --ill-leaf: #a9cfb6;
+  --ill-leaf-2: #82b493;
+  --ill-bloom: #f0b0c6;
+  --ill-bloom-2: #e38aa8;
+  --ill-sun: #ffd9a8;
+  --ill-sun-2: #f0b87c;
+  --ill-ink: #7c4a5f;
+  --ill-ink-soft: #a17387;
+  --ill-shadow: rgba(122, 55, 78, 0.16);
+  --ill-skin: #f6cab1;
+  --ill-skin-2: #e4a78a;
+  --ill-hair: #6a4254;
+  --ill-hair-2: #52313f;
+}
+
+/* ------------------------------ Shared dark mode ------------------------- */
+
+:root[data-mode="dark"] {
+  --ink: #f3edf9;
+  --ink-soft: #ded4ec;
+  --muted: #b3a8c4;
+  --muted-2: #a99cba;
+
+  --line: rgba(224, 210, 245, 0.13);
+  --line-strong: rgba(224, 210, 245, 0.24);
+
+  --danger: #e59aa8;
+  --danger-soft: rgba(229, 154, 168, 0.14);
+  --success: #8ed0ac;
+  --success-soft: rgba(142, 208, 172, 0.13);
+  --warning: #e0b578;
+  --warning-soft: rgba(224, 181, 120, 0.13);
+  --info: #9db9e8;
+  --info-soft: rgba(157, 185, 232, 0.13);
+
+  --mood-1: #c3b0ec;
+  --mood-2: #a8c4e8;
+  --mood-3: #e2c38e;
+  --mood-4: #9ed3ba;
+  --mood-5: #eab191;
+  --mood-1-soft: rgba(195, 176, 236, 0.14);
+  --mood-2-soft: rgba(168, 196, 232, 0.14);
+  --mood-3-soft: rgba(226, 195, 142, 0.14);
+  --mood-4-soft: rgba(158, 211, 186, 0.14);
+  --mood-5-soft: rgba(234, 177, 145, 0.14);
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-sm: 0 8px 20px -10px rgba(0, 0, 0, 0.5);
+  --shadow-md: 0 20px 44px -24px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 40px 80px -40px rgba(0, 0, 0, 0.72);
+
+  --ill-cloud: #2c2539;
+  --ill-cloud-2: #262031;
+  --ill-hill: #3b3157;
+  --ill-hill-2: #4a3d6c;
+  --ill-hill-front: #2e2745;
+  --ill-sand: #4d3a35;
+  --ill-sand-2: #5d463d;
+  --ill-sky: #273649;
+  --ill-sky-2: #33475f;
+  --ill-water: #2a4a5e;
+  --ill-water-2: #36637d;
+  --ill-leaf: #3c5e4b;
+  --ill-leaf-2: #4d755e;
+  --ill-bloom: #5a3a4d;
+  --ill-bloom-2: #6e475d;
+  --ill-sun: #6b5435;
+  --ill-sun-2: #846943;
+  --ill-ink: #b5a6d5;
+  --ill-ink-soft: #8f80ab;
+  --ill-shadow: rgba(0, 0, 0, 0.34);
+  --ill-skin: #c99b83;
+  --ill-skin-2: #a87a64;
+  --ill-hair: #4a3a58;
+  --ill-hair-2: #382b44;
+}
+
+/* ------------------------------ Dark palettes ---------------------------- */
+
+:root[data-mode="dark"][data-theme="lavender"] {
+  --bg: #14111c;
+  --bg-2: #1b1625;
+  --bg-accent: #241d34;
+  --surface: rgba(33, 27, 45, 0.72);
+  --surface-strong: rgba(39, 32, 53, 0.9);
+  --surface-solid: #221c2e;
+  --surface-sunken: rgba(25, 20, 35, 0.76);
+  --surface-input: rgba(23, 18, 32, 0.62);
+  --brand: #cbbcff;
+  --brand-2: #a28cd9;
+  --brand-3: #6f5d96;
+  --brand-deep: #d3c5f5;
+  --brand-ink: #d3c5f5;
+  --brand-soft: rgba(178, 158, 235, 0.16);
+  --brand-gradient: linear-gradient(135deg, #6a55a1 0%, #493a74 100%);
+  --decor-1: rgba(130, 104, 184, 0.2);
+  --decor-2: rgba(98, 78, 128, 0.24);
+  --decor-3: rgba(70, 92, 132, 0.18);
+  --selection: rgba(182, 162, 232, 0.3);
+  --glow-brand: 0 18px 44px -20px rgba(143, 120, 207, 0.45);
+  --focus-ring: 0 0 0 3px rgba(203, 188, 255, 0.4);
+}
+
+:root[data-mode="dark"][data-theme="peach"] {
+  --bg: #19120f;
+  --bg-2: #211814;
+  --bg-accent: #2c1f19;
+  --surface: rgba(43, 31, 25, 0.74);
+  --surface-strong: rgba(50, 36, 29, 0.9);
+  --surface-solid: #2b1f19;
+  --surface-sunken: rgba(33, 24, 19, 0.78);
+  --surface-input: rgba(30, 22, 17, 0.64);
+  --brand: #f1c4ae;
+  --brand-2: #cf8266;
+  --brand-3: #8a5a45;
+  --brand-deep: #f6d3c2;
+  --brand-ink: #f6d3c2;
+  --brand-soft: rgba(207, 130, 102, 0.17);
+  --brand-gradient: linear-gradient(135deg, #9c5238 0%, #6f3a28 100%);
+  --decor-1: rgba(168, 104, 76, 0.2);
+  --decor-2: rgba(126, 78, 58, 0.22);
+  --decor-3: rgba(110, 84, 122, 0.16);
+  --selection: rgba(232, 174, 148, 0.3);
+  --glow-brand: 0 18px 44px -20px rgba(156, 82, 56, 0.42);
+  --focus-ring: 0 0 0 3px rgba(241, 196, 174, 0.38);
+}
+
+:root[data-mode="dark"][data-theme="mint"] {
+  --bg: #101815;
+  --bg-2: #151f1a;
+  --bg-accent: #1d2b24;
+  --surface: rgba(26, 39, 33, 0.74);
+  --surface-strong: rgba(32, 47, 40, 0.9);
+  --surface-solid: #1a2721;
+  --surface-sunken: rgba(20, 31, 26, 0.78);
+  --surface-input: rgba(18, 28, 23, 0.64);
+  --brand: #bfe8d6;
+  --brand-2: #6aab90;
+  --brand-3: #457a66;
+  --brand-deep: #c8ecdb;
+  --brand-ink: #c8ecdb;
+  --brand-soft: rgba(106, 171, 144, 0.17);
+  --brand-gradient: linear-gradient(135deg, #39745d 0%, #275443 100%);
+  --decor-1: rgba(86, 148, 122, 0.2);
+  --decor-2: rgba(64, 112, 92, 0.22);
+  --decor-3: rgba(74, 100, 132, 0.16);
+  --selection: rgba(158, 211, 186, 0.3);
+  --glow-brand: 0 18px 44px -20px rgba(57, 116, 93, 0.42);
+  --focus-ring: 0 0 0 3px rgba(191, 232, 214, 0.36);
+}
+
+:root[data-mode="dark"][data-theme="sky"] {
+  --bg: #101720;
+  --bg-2: #161e29;
+  --bg-accent: #1e2938;
+  --surface: rgba(27, 37, 50, 0.74);
+  --surface-strong: rgba(33, 45, 60, 0.9);
+  --surface-solid: #1b2532;
+  --surface-sunken: rgba(21, 29, 39, 0.78);
+  --surface-input: rgba(19, 26, 36, 0.64);
+  --brand: #c6d9f4;
+  --brand-2: #6f93c6;
+  --brand-3: #44658f;
+  --brand-deep: #cfe0f7;
+  --brand-ink: #cfe0f7;
+  --brand-soft: rgba(111, 147, 198, 0.17);
+  --brand-gradient: linear-gradient(135deg, #456896 0%, #2f4a6e 100%);
+  --decor-1: rgba(86, 118, 168, 0.2);
+  --decor-2: rgba(64, 88, 126, 0.22);
+  --decor-3: rgba(110, 84, 122, 0.16);
+  --selection: rgba(166, 192, 232, 0.3);
+  --glow-brand: 0 18px 44px -20px rgba(69, 104, 150, 0.42);
+  --focus-ring: 0 0 0 3px rgba(198, 217, 244, 0.36);
+}
+
+:root[data-mode="dark"][data-theme="rose"] {
+  --bg: #191116;
+  --bg-2: #21161c;
+  --bg-accent: #2c1d25;
+  --surface: rgba(42, 29, 37, 0.74);
+  --surface-strong: rgba(49, 34, 43, 0.9);
+  --surface-solid: #2a1d25;
+  --surface-sunken: rgba(33, 23, 29, 0.78);
+  --surface-input: rgba(30, 21, 26, 0.64);
+  --brand: #f6c6d5;
+  --brand-2: #cf8299;
+  --brand-3: #8f5266;
+  --brand-deep: #f9d3de;
+  --brand-ink: #f9d3de;
+  --brand-soft: rgba(207, 130, 153, 0.17);
+  --brand-gradient: linear-gradient(135deg, #99506a 0%, #6e394d 100%);
+  --decor-1: rgba(168, 86, 112, 0.2);
+  --decor-2: rgba(126, 68, 86, 0.22);
+  --decor-3: rgba(100, 84, 126, 0.16);
+  --selection: rgba(239, 179, 197, 0.3);
+  --glow-brand: 0 18px 44px -20px rgba(153, 80, 106, 0.42);
+  --focus-ring: 0 0 0 3px rgba(246, 198, 213, 0.36);
+}
+
+/* ---------------------- Illustration tints in dark mode ------------------- */
+
+:root[data-mode="dark"][data-theme="lavender"] {
+  --ill-hill: #3b3157;
+  --ill-hill-2: #4c3f70;
+  --ill-hill-front: #2e2745;
+  --ill-ink: #b5a6d5;
+}
+
+:root[data-mode="dark"][data-theme="peach"] {
+  --ill-hill: #4a342c;
+  --ill-hill-2: #5d4034;
+  --ill-hill-front: #382823;
+  --ill-cloud: #33241f;
+  --ill-cloud-2: #2b1f1b;
+  --ill-sand: #5d4034;
+  --ill-sand-2: #6e4c3d;
+  --ill-bloom: #5e3a3a;
+  --ill-bloom-2: #71474a;
+  --ill-ink: #e8b9a2;
+  --ill-hair: #4c3830;
+  --ill-hair-2: #3a2a24;
+}
+
+:root[data-mode="dark"][data-theme="mint"] {
+  --ill-hill: #2c4439;
+  --ill-hill-2: #385747;
+  --ill-hill-front: #22352c;
+  --ill-cloud: #223028;
+  --ill-cloud-2: #1d2922;
+  --ill-sand: #4b3d33;
+  --ill-sand-2: #5c4a3c;
+  --ill-bloom: #4d3844;
+  --ill-bloom-2: #614754;
+  --ill-ink: #a9cebc;
+  --ill-hair: #3a4237;
+  --ill-hair-2: #2c332a;
+}
+
+:root[data-mode="dark"][data-theme="sky"] {
+  --ill-hill: #2c3d57;
+  --ill-hill-2: #394e6d;
+  --ill-hill-front: #223048;
+  --ill-cloud: #232d3c;
+  --ill-cloud-2: #1d2634;
+  --ill-sand: #473c38;
+  --ill-sand-2: #574941;
+  --ill-bloom: #463746;
+  --ill-bloom-2: #594557;
+  --ill-ink: #adc3e4;
+  --ill-hair: #37415a;
+  --ill-hair-2: #2a3247;
+}
+
+:root[data-mode="dark"][data-theme="rose"] {
+  --ill-hill: #4b3341;
+  --ill-hill-2: #5e4050;
+  --ill-hill-front: #3b2733;
+  --ill-cloud: #312530;
+  --ill-cloud-2: #2a1f29;
+  --ill-sand: #4e3834;
+  --ill-sand-2: #60463f;
+  --ill-bloom: #5c3a4a;
+  --ill-bloom-2: #704759;
+  --ill-ink: #e3b3c6;
+  --ill-hair: #483140;
+  --ill-hair-2: #372432;
+}
